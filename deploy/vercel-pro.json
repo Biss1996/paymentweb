@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {"wsgi.py": {"maxDuration": 60}},
+  "crons": [{"path": "/api/cron/deliver", "schedule": "* * * * *"}],
+  "headers": [{"source": "/(.*)", "headers": [{"key": "X-Content-Type-Options", "value": "nosniff"}, {"key": "Referrer-Policy", "value": "no-referrer"}]}]
+}

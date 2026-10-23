@@ -1,0 +1,22 @@
+services:
+  api:
+    build: .
+    env_file: .env
+    environment:
+      DATABASE_PATH: /data/payments.db
+    ports:
+      - '127.0.0.1:3001:3001'
+    volumes:
+      - payment-data:/data
+    restart: unless-stopped
+  worker:
+    build: .
+    command: python manage.py worker
+    env_file: .env
+    environment:
+      DATABASE_PATH: /data/payments.db
+    volumes:
+      - payment-data:/data
+    restart: unless-stopped
+volumes:
+  payment-data:

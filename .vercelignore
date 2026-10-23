@@ -1,0 +1,11 @@
+.venv
+.env
+.env.*.local
+data
+tests
+__pycache__
+**/__pycache__
+*.db
+*.db-*
+*credentials*.json
+.library-save
